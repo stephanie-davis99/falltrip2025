@@ -1,14 +1,30 @@
 body {
     font-family: Arial, sans-serif;
-    background: #fff;
+    background: linear-gradient(135deg, #ffb74d, #ff8f00, #ffcc80);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
     color: #333;
     margin: 0;
     padding: 0;
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 10px;
+}
+.personal-header {
+    font-size: 1.2em;
+    text-align: center;
+    color: #ff6f00;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 h1 {
     text-align: center;

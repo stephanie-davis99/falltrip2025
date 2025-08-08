@@ -1,12 +1,12 @@
 const fields = [
-    "destination", "dates", "budget",
+    "destination", "otherDestination", "dates", "budget",
     "accommodation", "transport", "food", "packing", "notes"
 ];
 
 function saveData() {
     fields.forEach(id => {
         const el = document.getElementById(id);
-        localStorage.setItem(id, el.value);
+        if (el) localStorage.setItem(id, el.value);
     });
     for (let i = 1; i <= 4; i++) {
         ["morning", "afternoon", "evening"].forEach(part => {
@@ -20,7 +20,7 @@ function saveData() {
 function loadData() {
     fields.forEach(id => {
         const el = document.getElementById(id);
-        if (localStorage.getItem(id)) el.value = localStorage.getItem(id);
+        if (el && localStorage.getItem(id)) el.value = localStorage.getItem(id);
     });
     for (let i = 1; i <= 4; i++) {
         ["morning", "afternoon", "evening"].forEach(part => {
@@ -29,6 +29,7 @@ function loadData() {
             if (localStorage.getItem(id)) el.value = localStorage.getItem(id);
         });
     }
+    toggleOtherDestination();
 }
 
 function resetPlanner() {
@@ -49,6 +50,16 @@ function createPlanner() {
             <label>Evening:<br><textarea id="day${i}_evening" oninput="saveData()"></textarea></label>
         `;
         container.appendChild(dayDiv);
+    }
+}
+
+function toggleOtherDestination() {
+    const destSelect = document.getElementById("destination");
+    const otherInput = document.getElementById("otherDestination");
+    if (destSelect.value === "other") {
+        otherInput.style.display = "block";
+    } else {
+        otherInput.style.display = "none";
     }
 }
 

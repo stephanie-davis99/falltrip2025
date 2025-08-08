@@ -8,19 +8,22 @@
 </head>
 <body>
     <div class="container">
+        <div class="personal-header">Hi Max ❤️ Love you, from Stephanie</div>
         <h1>🧳 4-Day Trip Planner</h1>
 
         <section>
             <h2>🌍 Trip Overview</h2>
             <label>Destination:
-                <select id="destination" onchange="saveData()">
+                <select id="destination" onchange="toggleOtherDestination(); saveData();">
                     <option value="">-- Select --</option>
                     <option>Algarve, Portugal</option>
                     <option>Prague, Czech Republic</option>
                     <option>Warsaw, Poland</option>
                     <option>Sicily, Italy</option>
+                    <option value="other">Other</option>
                 </select>
-            </label><br>
+            </label>
+            <input type="text" id="otherDestination" placeholder="Enter your destination" style="display:none;" oninput="saveData()"><br>
             <label>Dates: <input type="text" id="dates" oninput="saveData()"></label><br>
             <label>Budget: <input type="text" id="budget" oninput="saveData()"></label>
         </section>
