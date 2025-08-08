@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Day Trip Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧳 4-Day Trip Planner</h1>
+
+        <section>
+            <h2>🌍 Trip Overview</h2>
+            <label>Destination:
+                <select id="destination" onchange="saveData()">
+                    <option value="">-- Select --</option>
+                    <option>Algarve, Portugal</option>
+                    <option>Prague, Czech Republic</option>
+                    <option>Warsaw, Poland</option>
+                    <option>Sicily, Italy</option>
+                </select>
+            </label><br>
+            <label>Dates: <input type="text" id="dates" oninput="saveData()"></label><br>
+            <label>Budget: <input type="text" id="budget" oninput="saveData()"></label>
+        </section>
+
+        <section>
+            <h2>🗓️ Daily Planner</h2>
+            <div id="planner"></div>
+        </section>
+
+        <section>
+            <h2>🏨 Accommodation</h2>
+            <textarea id="accommodation" placeholder="Hotel name, price, link, status..." oninput="saveData()"></textarea>
+        </section>
+
+        <section>
+            <h2>🚆 Transport</h2>
+            <textarea id="transport" placeholder="Flights, trains, local travel..." oninput="saveData()"></textarea>
+        </section>
+
+        <section>
+            <h2>🍝 Food & Drink</h2>
+            <textarea id="food" placeholder="Restaurants, cafes, reservations..." oninput="saveData()"></textarea>
+        </section>
+
+        <section>
+            <h2>✅ Packing List</h2>
+            <textarea id="packing" placeholder="Clothes, toiletries, chargers..." oninput="saveData()"></textarea>
+        </section>
+
+        <section>
+            <h2>💬 Shared Notes</h2>
+            <textarea id="notes" placeholder="Ideas, to-dos, links..." oninput="saveData()"></textarea>
+        </section>
+
+        <button onclick="resetPlanner()">Reset All</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
